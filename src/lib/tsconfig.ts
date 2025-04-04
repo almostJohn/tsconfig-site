@@ -1,8 +1,46 @@
-export const template: string = `{
+export const tsConfigTemplateForNextJs: string = `{
 	"compilerOptions": {
+		"target": "ES2017",
+		"lib": ["dom", "dom.iterable", "esnext"],
+		"allowJs": true,
+		"skipLibCheck": true,
+		"strict": true,
+		"noEmit": true,
+		"esModuleInterop": true,
+		"module": "esnext",
+		"moduleResolution": "bundler",
+		"resolveJsonModule": true,
+		"isolatedModules": true,
+		"jsx": "preserve",
+		"incremental": true,
+		"plugins": [
+			{
+				"name": "next"
+			}
+		],
+		"paths": {
+			"@/*": ["./src/*"]
+		}
+	},
+	"include": [
+		"next-env.d.ts",
+		"**/*.ts",
+		"**/*.tsx",
+		".next/types/**/*.ts"
+	],
+	"exclude": ["node_modules"]
+}`;
+
+export const tsConfigTemplateForNodeJs: string = `{
+	"compilerOptions": {
+		"module": "Node16",
+		"moduleResolution": "Node16",
+		"resolveJsonModule": true,
+		"outDir": "dist",
+		"lib": ["ESNext"],
 		"allowUnreachableCode": false,
 		"allowUnusedLabels": false,
-		"exactOptionalPropertyTypes": true,
+		"exactOptionalPropertyTypes": false,
 		"noFallthroughCasesInSwitch": true,
 		"noImplicitOverride": true,
 		"noImplicitReturns": true,
@@ -11,16 +49,12 @@ export const template: string = `{
 		"strict": true,
 		"useUnknownInCatchVariables": true,
 		"noUncheckedIndexedAccess": true,
-		"module": "ESNext",
-		"moduleResolution": "Bundler",
-		"resolveJsonModule": true,
 		"declaration": true,
 		"declarationMap": true,
 		"importHelpers": true,
+		"verbatimModuleSyntax": true,
 		"inlineSources": true,
 		"newLine": "lf",
-		"noEmitHelpers": true,
-		"outDir": "dist",
 		"preserveConstEnums": true,
 		"removeComments": false,
 		"sourceMap": true,
@@ -28,38 +62,15 @@ export const template: string = `{
 		"forceConsistentCasingInFileNames": true,
 		"emitDecoratorMetadata": true,
 		"experimentalDecorators": true,
-		"lib": [
-			"ESNext",
-			"DOM",
-			"DOM.Iterable"
-		],
 		"target": "ES2021",
 		"useDefineForClassFields": true,
-		"isolatedModules": true,
-		"jsx": "preserve",
-		"baseUrl": ".",
-		"noEmit": true,
-		"allowJs": false,
-		"incremental": true,
-		"skipLibCheck": true,
-		"plugins": [
-			{
-				"name": "next"
-			}
-		],
-		"paths": {
-			"~/*": [
-				"./src/*"
-			]
-		}
+		"skipLibCheck": true
 	},
 	"include": [
 		"**/*.ts",
 		"**/*.tsx",
 		"src/**/*.ts",
-		"src/**/*.tsx",
-		"next-env.d.ts",
-		".next/types/**/*.ts"
+		"src/**/*.tsx"
 	],
 	"exclude": ["node_modules"]
 }`;
