@@ -1,7 +1,11 @@
 export const tsConfigTemplateForNextJs: string = `{
 	"compilerOptions": {
 		"target": "ES2017",
-		"lib": ["dom", "dom.iterable", "esnext"],
+		"lib": [
+			"dom",
+			"dom.iterable",
+			"esnext"
+		],
 		"allowJs": true,
 		"skipLibCheck": true,
 		"strict": true,
@@ -68,9 +72,7 @@ export const tsConfigTemplateForNodeJs: string = `{
 	},
 	"include": [
 		"**/*.ts",
-		"**/*.tsx",
-		"src/**/*.ts",
-		"src/**/*.tsx"
+		"src/**/*.ts"
 	],
 	"exclude": ["node_modules"]
 }`;
