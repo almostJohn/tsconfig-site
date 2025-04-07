@@ -32,7 +32,7 @@ export function CopyConfig() {
 
 	return (
 		<Tabs defaultValue="nextjs-config">
-			<TabsList className="mx-auto grid w-full grid-cols-2 md:w-1/2">
+			<TabsList className="mx-auto grid grid-cols-2 w-full md:max-w-sm">
 				<TabsTrigger value="nextjs-config">For Next.js</TabsTrigger>
 				<TabsTrigger value="nodejs-config">For Node.js</TabsTrigger>
 			</TabsList>
