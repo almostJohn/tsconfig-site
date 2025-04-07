@@ -25,18 +25,8 @@ export default function Page() {
 							</span>{" "}
 							for your project. No hassle, just the right settings for TypeScript—ready to go in seconds!
 						</p>
-						<div className="flex items-center justify-center pt-4">
-							<Link
-								href="https://github.com/almostJohn"
-								rel="noreferrer"
-								target="_blank"
-								className={cn(buttonVariants({ className: "px-6" }))}
-							>
-								<GitHub className="size-5" /> GitHub
-							</Link>
-						</div>
 					</div>
-					<div className="mt-8 container">
+					<div className="mt-8">
 						<CopyConfig />
 					</div>
 				</div>
