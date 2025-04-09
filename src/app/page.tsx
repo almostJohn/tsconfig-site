@@ -1,34 +1,19 @@
 import * as React from "react";
-import Link from "next/link";
-import { SiTypescript as TypeScriptIcon, SiGithub as GitHub } from "@icons-pack/react-simple-icons";
-import { CopyConfig } from "~/components/copy-config";
-import { buttonVariants } from "~/components/ui/button";
-import { cn } from "~/lib/utils";
+import { PageAction } from "~/components/page-action";
 
 export default function Page() {
 	return (
 		<>
-			<div className="px-4 md:px-6 py-12 md:py-24 lg:py-32">
-				<div className="flex flex-col gap-8">
-					<div className="container flex flex-col items-center justify-center space-y-4">
-						<h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl text-center">
-							Effortless{" "}
-							<span className="inline-flex items-center">
-								<TypeScriptIcon className="text-blue-500 size-8 md:size-12" />
-							</span>{" "}
-							Config Setup
-						</h1>
-						<p className="pt-6 text-xl text-neutral-500 max-w-[900px] text-center">
-							Easily find, copy, and paste the perfect{" "}
-							<span className="inline-flex items-center justify-center px-1 py-0.5 rounded bg-neutral-200 font-mono">
-								tsconfig.json
-							</span>{" "}
-							for your project. No hassle, just the right settings for TypeScript—ready to go in seconds!
-						</p>
-					</div>
-					<div className="mt-8">
-						<CopyConfig />
-					</div>
+			<div className="flex min-h-screen flex-col items-center justify-center py-12 md:py-24 lg:py-32">
+				<div className="w-full max-w-3xl space-y-6 px-4">
+					<h1 className="text-4xl font-bold tracking-tight text-center sm:text-5xl md:text-6xl">
+						Effortless TypeScript Configuration Setup
+					</h1>
+					<p className="mx-auto text-lg text-neutral-500 text-center md:text-xl">
+						tsconfig is a simple site for easily copying and pasting TypeScript configuration file. No setup, no
+						fuss—just grab the tsconfig.json you need and get coding.
+					</p>
+					<PageAction />
 				</div>
 			</div>
 		</>
