@@ -34,10 +34,12 @@ export function PageAction() {
 
 	return (
 		<Tabs defaultValue="nextjs">
-			<TabsList className="grid grid-cols-2 w-full">
-				<TabsTrigger value="nextjs">Next.js</TabsTrigger>
-				<TabsTrigger value="nodejs">Node.js</TabsTrigger>
-			</TabsList>
+			<div className="mx-auto w-full md:max-w-sm">
+				<TabsList className="grid grid-cols-2">
+					<TabsTrigger value="nextjs">Next.js</TabsTrigger>
+					<TabsTrigger value="nodejs">Node.js</TabsTrigger>
+				</TabsList>
+			</div>
 			<TabsContent value="nextjs" className="mt-6">
 				<div className="relative block p-3 overflow-y-auto w-full max-h-96 rounded-lg border border-neutral-300">
 					<Button
