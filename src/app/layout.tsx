@@ -1,6 +1,6 @@
 import "~/styles/globals.css";
 import type { Metadata } from "next";
-import { inter } from "~/lib/fonts";
+import { geist } from "~/lib/fonts";
 import { siteConfig } from "~/config/site";
 
 export const metadata: Metadata = {
@@ -13,20 +13,29 @@ export const metadata: Metadata = {
 				sizes: "32x32",
 				type: "image/svg",
 			},
-			{
-				url: "/tsconfig.svg",
-				sizes: "16x16",
-				type: "image/svg",
-			},
 		],
+	},
+	appleWebApp: {
+		title: siteConfig.name,
+	},
+	applicationName: siteConfig.name,
+	openGraph: {
+		siteName: siteConfig.name,
+		title: siteConfig.title,
+		description: siteConfig.description,
+		type: "website",
+	},
+	twitter: {
+		card: "summary_large_image",
+		creator: siteConfig.creator,
 	},
 };
 
 export default function RootLayout({ children }: { readonly children: React.ReactNode }) {
 	return (
 		<html lang="en" suppressHydrationWarning>
-			<body className={`${inter.className} bg-[#fafafa] text-[#090909] antialiased`}>
-				<main className="min-h-screen">{children}</main>
+			<body className={`${geist.className} bg-white text-black min-h-screen antialiased`}>
+				<div className="mx-auto max-w-7xl px-6 md:px-8 pt-6 md:pt-8 pb-16 md:pb-24 lg:pb-32">{children}</div>
 			</body>
 		</html>
 	);

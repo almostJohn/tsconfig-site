@@ -1,14 +1,15 @@
 "use client";
 
-import * as React from "react";
+import { useState } from "react";
 import { Check, Copy } from "lucide-react";
 import { tsConfigTemplateForNextJs, tsConfigTemplateForNodeJs } from "~/lib/template";
 import { Button } from "./ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "./ui/tabs";
+import { geistMono } from "~/lib/fonts";
 
 export function PageAction() {
-	const [copiedNextJsTsConfig, setCopiedNextJsTsConfig] = React.useState(false);
-	const [copiedNodeJsTsConfig, setCopiedNodeJsTsConfig] = React.useState(false);
+	const [copiedNextJsTsConfig, setCopiedNextJsTsConfig] = useState(false);
+	const [copiedNodeJsTsConfig, setCopiedNodeJsTsConfig] = useState(false);
 
 	async function copyNextJsTsConfig() {
 		try {
@@ -34,14 +35,16 @@ export function PageAction() {
 
 	return (
 		<Tabs defaultValue="nextjs">
-			<div className="mx-auto w-full md:max-w-sm">
-				<TabsList className="grid grid-cols-2">
-					<TabsTrigger value="nextjs">Next.js</TabsTrigger>
-					<TabsTrigger value="nodejs">Node.js</TabsTrigger>
-				</TabsList>
-			</div>
+			<TabsList className="grid grid-cols-2 w-full md:max-w-sm mx-auto bg-transparent border">
+				<TabsTrigger className="data-[state=active]:bg-blue-600 h-6 data-[state=active]:text-white" value="nextjs">
+					Next.js
+				</TabsTrigger>
+				<TabsTrigger className="data-[state=active]:bg-blue-600 h-6 data-[state=active]:text-white" value="nodejs">
+					Node.js
+				</TabsTrigger>
+			</TabsList>
 			<TabsContent value="nextjs" className="mt-6">
-				<div className="relative block p-3 overflow-y-auto w-full max-h-96 rounded-lg border border-neutral-300">
+				<div className="relative block p-3 overflow-y-auto w-full max-h-96 rounded-lg border">
 					<Button
 						variant="outline"
 						size="icon"
@@ -51,12 +54,12 @@ export function PageAction() {
 						{copiedNextJsTsConfig ? <Check className="size-4 text-green-600" /> : <Copy className="size-4" />}
 					</Button>
 					<pre className="overflow-auto">
-						<code className="text-sm/relaxed">{tsConfigTemplateForNextJs}</code>
+						<code className={`${geistMono.className} text-sm/relaxed`}>{tsConfigTemplateForNextJs}</code>
 					</pre>
 				</div>
 			</TabsContent>
 			<TabsContent value="nodejs" className="mt-6">
-				<div className="relative block p-3 overflow-y-auto w-full max-h-96 rounded-lg border border-neutral-300">
+				<div className="relative block p-3 overflow-y-auto w-full max-h-96 rounded-lg border">
 					<Button
 						variant="outline"
 						size="icon"
@@ -66,7 +69,7 @@ export function PageAction() {
 						{copiedNodeJsTsConfig ? <Check className="text-green-600 size-4" /> : <Copy className="size-4" />}
 					</Button>
 					<pre className="overflow-auto">
-						<code className="text-sm/relaxed">{tsConfigTemplateForNodeJs}</code>
+						<code className={`${geistMono.className} text-sm/relaxed`}>{tsConfigTemplateForNodeJs}</code>
 					</pre>
 				</div>
 			</TabsContent>
