@@ -1,7 +1,10 @@
 import "~/styles/globals.css";
 import type { Metadata } from "next";
+import type { PropsWithChildren } from "react";
 import { geist } from "~/lib/fonts";
 import { siteConfig } from "~/config/site";
+import { cn } from "~/lib/utils";
+import { Footer } from "~/components/footer";
 
 export const metadata: Metadata = {
 	title: siteConfig.title,
@@ -31,11 +34,19 @@ export const metadata: Metadata = {
 	},
 };
 
-export default function RootLayout({ children }: { readonly children: React.ReactNode }) {
+export default function RootLayout({ children }: PropsWithChildren) {
 	return (
 		<html lang="en" suppressHydrationWarning>
-			<body className={`${geist.className} bg-white text-black min-h-screen antialiased`}>
-				<div className="mx-auto max-w-7xl px-6 md:px-8 pt-6 md:pt-8 pb-16 md:pb-24 lg:pb-32">{children}</div>
+			<body
+				className={cn(
+					"bg-neutral-100 text-neutral-900 antialiased",
+					geist.className,
+				)}
+			>
+				<div className="min-h-screen">
+					{children}
+					<Footer />
+				</div>
 			</body>
 		</html>
 	);

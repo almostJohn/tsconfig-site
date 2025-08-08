@@ -1,8 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import { Check, Copy } from "lucide-react";
-import { tsConfigTemplateForNextJs, tsConfigTemplateForNodeJs } from "~/lib/template";
+import { Check, Copy, CopyCheck } from "lucide-react";
+import {
+	tsConfigTemplateForNextJs,
+	tsConfigTemplateForNodeJs,
+} from "~/lib/template";
 import { Button } from "./ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "./ui/tabs";
 import { geistMono } from "~/lib/fonts";
@@ -35,41 +38,59 @@ export function PageAction() {
 
 	return (
 		<Tabs defaultValue="nextjs">
-			<TabsList className="grid grid-cols-2 w-full md:max-w-sm mx-auto bg-transparent border">
-				<TabsTrigger className="data-[state=active]:bg-blue-600 h-6 data-[state=active]:text-white" value="nextjs">
+			<TabsList className="grid grid-cols-2 w-full md:max-w-sm mx-auto rounded-md bg-transparent border border-neutral-300">
+				<TabsTrigger
+					className="data-[state=active]:bg-blue-600 h-6 data-[state=active]:text-white"
+					value="nextjs"
+				>
 					Next.js
 				</TabsTrigger>
-				<TabsTrigger className="data-[state=active]:bg-blue-600 h-6 data-[state=active]:text-white" value="nodejs">
+				<TabsTrigger
+					className="data-[state=active]:bg-blue-600 h-6 data-[state=active]:text-white"
+					value="nodejs"
+				>
 					Node.js
 				</TabsTrigger>
 			</TabsList>
-			<TabsContent value="nextjs" className="mt-6">
-				<div className="relative block p-3 overflow-y-auto w-full max-h-96 rounded-lg border">
+			<TabsContent value="nextjs" className="mt-3">
+				<div className="relative block p-3 overflow-y-auto w-full max-h-96 rounded-md border border-neutral-300">
 					<Button
 						variant="outline"
 						size="icon"
-						className="h-7 w-7 rounded-lg absolute top-3 right-3"
+						className="size-8 px-2 rounded-md absolute top-3 right-3"
 						onClick={copyNextJsTsConfig}
 					>
-						{copiedNextJsTsConfig ? <Check className="size-4 text-green-600" /> : <Copy className="size-4" />}
+						{copiedNextJsTsConfig ? (
+							<CopyCheck className="size-4 text-emerald-500" />
+						) : (
+							<Copy className="size-4" />
+						)}
 					</Button>
 					<pre className="overflow-auto">
-						<code className={`${geistMono.className} text-sm/relaxed`}>{tsConfigTemplateForNextJs}</code>
+						<code className={`${geistMono.className} text-sm/relaxed`}>
+							{tsConfigTemplateForNextJs}
+						</code>
 					</pre>
 				</div>
 			</TabsContent>
-			<TabsContent value="nodejs" className="mt-6">
-				<div className="relative block p-3 overflow-y-auto w-full max-h-96 rounded-lg border">
+			<TabsContent value="nodejs" className="mt-3">
+				<div className="relative block p-3 overflow-y-auto w-full max-h-96 rounded-md border border-neutral-300">
 					<Button
 						variant="outline"
 						size="icon"
-						className="h-7 w-7 rounded-lg absolute top-3 right-3"
+						className="size-8 px-2 rounded-md absolute top-3 right-3"
 						onClick={copyNodeJsTsConfig}
 					>
-						{copiedNodeJsTsConfig ? <Check className="text-green-600 size-4" /> : <Copy className="size-4" />}
+						{copiedNodeJsTsConfig ? (
+							<CopyCheck className="text-emerald-600 size-4" />
+						) : (
+							<Copy className="size-4" />
+						)}
 					</Button>
 					<pre className="overflow-auto">
-						<code className={`${geistMono.className} text-sm/relaxed`}>{tsConfigTemplateForNodeJs}</code>
+						<code className={`${geistMono.className} text-sm/relaxed`}>
+							{tsConfigTemplateForNodeJs}
+						</code>
 					</pre>
 				</div>
 			</TabsContent>
